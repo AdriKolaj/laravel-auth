@@ -9,6 +9,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use App\Mail\SendNewMail;
+use Illuminate\Support\Facades\Mail;
+
 class PostController extends Controller
 {
     private $postValidation = [     
@@ -65,6 +68,7 @@ class PostController extends Controller
         $saved = $newPost->save();
 
         if($saved) {
+            Mail::to('giovanni@mail.com')->send(new SendNewMail());
             return redirect()
                 ->route('admin.posts.index')
                 ->with('message', 'Post ' . $newPost->title . ' creato correttamente!');

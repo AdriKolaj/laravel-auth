@@ -14,7 +14,7 @@
     @foreach ($posts as $post)
       <section class="my-4">
         <div class="card-header text-center">
-          <img src="{{ asset('storage/' . $post->img_path) }}" class="img-fluid" alt="{{ $post->title }}">
+          <img src="{{ asset('storage/' . $post->img_path) }}" class="img-fluid mb-4" alt="{{ $post->title }}">
           <h2>{{ $post->title }}</h2>
           <small>{{ $post->user->name }}</small>
         </div>
